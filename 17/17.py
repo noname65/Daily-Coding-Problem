@@ -41,7 +41,7 @@ def randomFiles(maxFilesNum=10):#Randomly generate a specified number of files
   for i in range(maxFilesNum):
     if i!=0:
       result+="\n"
-    result+='\f'*depth+randomStr(names)
+    result+='\t'*depth+randomStr(names)
     depth=r.randrange(0,depth+2)
   return result
 def maxLengthPath(files):#Receive a files string and return the longest address
@@ -50,7 +50,7 @@ def maxLengthPath(files):#Receive a files string and return the longest address
   maxLen=0
   maxPath=''
   for i in files[1:]:
-    temp=i.count('\f')
+    temp=i.count('\t')
     if temp>=len(path):
       path.append(i[temp:])
     elif temp==len(path):
@@ -64,5 +64,5 @@ def maxLengthPath(files):#Receive a files string and return the longest address
       maxPath=temp
   return maxPath
 f=randomFiles(100)#Generate 100 random files
-print(f.replace('\f','| '),"\n\n")
+print(f,"\n\n")
 print("Max length path is:",maxLengthPath(f))
